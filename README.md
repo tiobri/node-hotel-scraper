@@ -27,7 +27,7 @@ npm install
 ## Configuration
 
 ```sh
-mv .env.example .env
+cp .env.example .env
 ```
 
 ## Usage
