@@ -24,12 +24,12 @@ app.post("/search", async (req, res) => {
             notFilledDates.push('checkout');
 
         if (notFilledDates.length > 0)
-            throw [400, 'Informe a data de ' + notFilledDates.join(' e ')];
+            throw [400, 'Parameter ' + notFilledDates.join(' and ') + ' not found'];
 
         let arrResult = await hotelLeCantonScraper(checkin, checkout);
 
         if (arrResult.length == 0)
-            throw [404, 'Não foi encontrado registros para o filtro informado'];
+            throw [404, 'No results'];
         
         res.status(200).send(arrResult);
     }
@@ -50,11 +50,11 @@ app.post("/search", async (req, res) => {
 if (PORT)
 {
     app.listen(PORT, () => {
-        console.log('Ouvindo na porta ' + PORT);
+        console.log('Listening on port: ' + PORT);
     });
 }
 else
 {
-    console.log("Variável de ambiente PORT não encontrada")
+    console.log("PORT Environment variable not found");
 }
     

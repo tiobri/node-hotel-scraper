@@ -7,12 +7,12 @@ const urlLink = baseUrl + '/default.aspx?q=5462&version=MyReservation&sid=6398e2
 
 const validateDate = (date, description) => {
     if (!date)
-        throw [400, 'Erro na data de ' + description + ': Data não foi informada'];
+        throw [400, 'Error in ' + description + ' date: not sent'];
 
     objDate = moment(date, 'DD/MM/YYYY');
 
     if (!objDate.isValid() || date.length != 10)
-        throw [400, 'Erro na data de ' + description + ': Data com formato inválido, utilize o formato (DD/MM/YYYY)'];
+        throw [400, 'Error in ' + description + ' date: invalid format, please use format (DD/MM/YYYY)'];
 
     return objDate.format('DDMMYYYY');
 }
