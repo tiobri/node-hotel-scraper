@@ -36,7 +36,13 @@ mv .env.example .env
 npm run start
 ```
 
-The application will run on port 3000. If you want to use other port change variable PORT inside .env file.
+The application will work on port 3000. If you want to use other port change variable PORT inside .env file.
+
+## Request Example
+
+```sh
+curl -d "checkin="19/10/2020"&checkout="21/10/2020"" -X POST http://localhost:3000/search
+```
 
 ## Author
 
